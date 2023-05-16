@@ -7,12 +7,20 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: LoginView,
+    
+    
   },
   {
     path: '/edit/:id',
     name: 'edit',
-    component: taskEdit
+    component: taskEdit,
+    beforeEnter: (to, from, next) => {
+      if(!localStorage.token) {
+        next('/');
+      }
+      next();
+    },
   },
   {
     path: '/about',
@@ -20,17 +28,35 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
+    beforeEnter: (to, from, next) => {
+      if(!localStorage.token) {
+        next('/');
+      }
+      next();
+    },
   },
   {
     path: '/task',
     name: 'task',
-    component:LoginView
+    component:HomeView,
+    beforeEnter: (to, from, next) => {
+      if(!localStorage.token) {
+        next('/');
+      }
+      next();
+    },
   },
   {
     path:"/file/:id",
     name:"file",
-    component:fileEdit
+    component:fileEdit,
+    beforeEnter: (to, from, next) => {
+      if(!localStorage.token) {
+        next('/');
+      }
+      next();
+    },
   },
 ]
 

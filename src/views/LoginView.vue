@@ -38,8 +38,9 @@ export default {
       
       axios.post("http://localhost:3001/login", this.formData , {
         headers: {"Content-Type": "application/json", Accept: "application/json"},
-      }).then(() => {
+      }).then((res) => {
         this.formData = {}
+        localStorage.setItem("token", JSON.stringify(res.data))
         this.$router.push({ path: "/" });
       });
     },
