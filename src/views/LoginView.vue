@@ -36,13 +36,28 @@ export default {
         return;
       }
       
-      axios.post("http://localhost:3001/login", this.formData , {
-        headers: {"Content-Type": "application/json", Accept: "application/json"},
-      }).then((res) => {
-        this.formData = {}
-        localStorage.setItem("token", JSON.stringify(res.data))
+      axios.get("http://localhost:3001/login", { 
+        params: {
+          username: this.formData.username,
+          password: this.formData.password
+        }
+      })
+      .then(response => {
+          const user = response.data[0];
+          if (user) {
+            // Login successful
+            alert('Login successful!');
+            this.formData = {}
+        localStorage.setItem("token", JSON.stringify(response.data))
         this.$router.push({ path: "/task"});
-      });
+          } else {
+            // Login failed
+            alert('Invalid username or password.');
+          }
+        })
+      // .then((res) => {
+        
+      // });
     },
     
 
