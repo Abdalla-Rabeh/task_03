@@ -60,56 +60,6 @@
       "id": 3,
       "username": "user",
       "password": "123456"
-    },
-    {
-      "username": "admin",
-      "password": "123456",
-      "id": 4
-    },
-    {
-      "username": "admin",
-      "password": "admin",
-      "id": 5
-    },
-    {
-      "username": "admin",
-      "password": "213",
-      "id": 6
-    },
-    {
-      "username": "admin",
-      "password": "dffffffff",
-      "id": 7
-    },
-    {
-      "username": "eww",
-      "password": "ew",
-      "id": 8
-    },
-    {
-      "username": "user",
-      "password": "123456",
-      "id": 9
-    },
-    {
-      "username": "admin",
-      "password": "123456",
-      "id": 10
-    },
-    {
-      "username": "admin",
-      "password": "123456",
-      "id": 11
-    },
-    {
-      "username": "admin",
-      "password": "123456",
-      "id": 12
-    },
-    {
-      "username": "admin",
-      "password": "123456",
-      "id": 13
     }
   ]
 }

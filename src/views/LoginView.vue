@@ -41,7 +41,7 @@ export default {
       }).then((res) => {
         this.formData = {}
         localStorage.setItem("token", JSON.stringify(res.data))
-        this.$router.push({ path: "/" });
+        this.$router.push({ path: "/task"});
       });
     },
     
