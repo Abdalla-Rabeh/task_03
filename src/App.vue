@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <router-link to="/">task 1</router-link> |
-    <router-link to="/about">task 2</router-link> |
-    <router-link to="/task">task 3</router-link>
+    <router-link to="/">تسجيل الدخول</router-link> |
+    <router-link to="/task">اضافة الدكاتره</router-link> |
+    <router-link to="/about"> اضافة مسارات الصور</router-link>
   </nav>
   <router-view/>
 </template>
@@ -22,6 +22,7 @@ nav {
   a {
     font-weight: bold;
     color: #2c3e50;
+    text-decoration: none;
 
     &.router-link-exact-active {
       color: #42b983;
