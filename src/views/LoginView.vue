@@ -13,57 +13,57 @@
         class="form-control"
         placeholder="كلمة المرور"
       />
-      <button class="btn btn-primary" style="margin: 10px auto">تسجيل الدخول</button>
+      <button class="btn btn-primary" style="margin: 10px auto">
+        تسجيل الدخول
+      </button>
     </form>
   </div>
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
-  data(){
-    return{
-      formData:{
-        username:"",
-        password:"",
-      }
-    }
+  data() {
+    return {
+      formData: {
+        username: "",
+        password: "",
+      },
+    };
   },
   methods: {
     submit() {
       if (!this.formData.username || !this.formData.password) {
-        alert('Please enter both username and password.');
+        alert("الرجاء إدخال اسم المستخدم وكلمة المرور.");
         return;
       }
-      
-      axios.get("http://localhost:3001/login", { 
-        params: {
-          username: this.formData.username,
-          password: this.formData.password
-        }
-      })
-      .then(response => {
+
+      axios
+        .get("http://localhost:3001/login", {
+          params: {
+            username: this.formData.username,
+            password: this.formData.password,
+          },
+        })
+        .then((response) => {
           const user = response.data[0];
           if (user) {
             // Login successful
-            alert('Login successful!');
-            this.formData = {}
-        localStorage.setItem("token", JSON.stringify(response.data))
-        this.$router.push({ path: "/task"});
+            alert("تم تسجيل الدخول بنجاح!");
+            // this.formData = {}
+            localStorage.setItem("token", JSON.stringify(response.data));
+            this.$router.push({ path: "/task" });
           } else {
             // Login failed
-            alert('Invalid username or password.');
+            alert("خطأ في اسم المستخدم أو كلمة مرور .");
           }
-        })
+        });
       // .then((res) => {
-        
+
       // });
     },
-    
-
   },
- 
-}
+};
 </script>
 
 <style>
@@ -85,5 +85,4 @@ button {
   border: none;
   width: 100px;
 }
-
 </style>
